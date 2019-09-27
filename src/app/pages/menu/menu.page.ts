@@ -14,7 +14,23 @@ export class MenuPage implements OnInit {
       icon: 'home'
     },
     {
-      title: 'Subclass',
+      title: 'บุคลากร',
+      open: false,
+      children: [
+        {
+          title: 'บุคลากร',
+          url: '/menu/staff',
+          icon: 'logo-ionic'
+        },
+        {
+          title: 'นักศึกษา',
+          url: '/menu/student',
+          icon: 'logo-google'
+        }
+      ]
+    },
+    {
+      title: 'นักศึกษา',
       open: false,
       children: [
         {
