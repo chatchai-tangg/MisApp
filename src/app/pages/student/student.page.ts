@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Chart } from 'chart.js';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-student',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentPage implements OnInit {
 
-  constructor() { }
+  
+
+  constructor(private http: HttpClient, public router: Router) { }
 
   ngOnInit() {
   }
+  
 
 }
