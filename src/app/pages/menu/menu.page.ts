@@ -23,7 +23,7 @@ export class MenuPage implements OnInit {
           icon: 'logo-ionic'
         },
         {
-          title: 'นักศึกษา',
+          title: 'ผู้ขอทุนการศึกษา',
           url: '/menu/student',
           icon: 'logo-google'
         }
