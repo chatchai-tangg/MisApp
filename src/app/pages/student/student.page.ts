@@ -10,12 +10,10 @@ import { Router } from '@angular/router';
 })
 export class StudentPage implements OnInit {
 
-  
 
   constructor(private http: HttpClient, public router: Router) { }
 
   ngOnInit() {
   }
-  
 
 }
