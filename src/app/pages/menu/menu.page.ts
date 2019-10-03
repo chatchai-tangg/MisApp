@@ -26,6 +26,11 @@ export class MenuPage implements OnInit {
           title: 'ผู้ขอทุนการศึกษา',
           url: '/menu/staff-reqposition',
           icon: 'logo-google'
+        },
+        {
+          title: 'ระดับการศึกษา',
+          url: '/menu/staffscholar',
+          icon: 'logo-google'
         }
       ]
     },

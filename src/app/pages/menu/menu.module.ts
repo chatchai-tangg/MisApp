@@ -20,6 +20,7 @@ const routes: Routes = [
       { path: 'staff', loadChildren: './pages/staff/staff.module#StaffPageModule' },
       { path: 'student', loadChildren: './pages/student/student.module#StudentPageModule' },
       { path: 'staff-reqposition', loadChildren: './pages/staff-reqposition/staff-reqposition.module#StaffReqpositionPageModule' },
+      { path: 'staffscholar', loadChildren: './pages/staffscholar/staffscholar.module#StaffscholarPageModule' },
     ]
   }
 ];

@@ -1,14 +1,17 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient,  } from '@angular/common/http';
 
 @Component({
-  selector: 'app-staff-reqposition',
-  templateUrl: './staff-reqposition.page.html',
-  styleUrls: ['./staff-reqposition.page.scss'],
+  selector: 'app-staffscholar',
+  templateUrl: './staffscholar.page.html',
+  styleUrls: ['./staffscholar.page.scss'],
 })
-export class StaffReqpositionPage implements OnInit {
+export class StaffscholarPage implements OnInit {
+  barChart: any;
   list: any;
+  data1: any;
+  dataname: any;
   chart: any;
   dataposition: any;
   datanameposition: any;
@@ -19,32 +22,34 @@ export class StaffReqpositionPage implements OnInit {
 
   constructor(public http: HttpClient) { }
 
-  get_reqposition() {
-    this.http.get('http://203.158.144.140/APIchart/charts/Reqposition')
+  get_reqscholar() {
+    let labels: any = [];
+    let data: any;
+    this.http.get('http://203.158.144.140/APIchart/charts/Reqscholar')
       .subscribe((res: any) => {
         this.list = res.Table;
-        this.etname = res.Table.map(res => res.ประเภท);
-        this.countreq = res.Table.map(res => res.จำนวน);
-        console.log(this.etname);
-        this.Chartreqposition();
+        this.dataposition = res.Table.map(res => res.ภายในประเทศ);
+        this.datanameposition = res.Table.map(res => res.ต่างประเทศ);
+        // console.log(this.dataposition)
+        // console.log(this.datanameposition)
+        // this.get_reqscholar();
       });
   }
 
   ngOnInit() {
-    this.get_reqposition();
+    this.get_reqscholar();
   }
 
-
-  Chartreqposition() {
-    var ctxreq = (<any>document.getElementById('Chartreqposition')).getContext('2d');
-    this.chart = new Chart(ctxreq, {
+  Chartscholar() {
+    var ctxscholar = (<any>document.getElementById('Chartscholar')).getContext('2d');
+    this.chart = new Chart(ctxscholar, {
       // The type of chart we want to create
-      type: 'bar',
-      // The data for our dataset      
+      type: 'horizontalBar',
+      // The data for our dataset
       data: {
-        labels: this.etname,
+        labels: this.datanameposition,
         datasets: [{
-          label: "ผู้ที่สามารถยื่นขอตำแหน่งวิชาการ",
+          label: 'ระดับการศึกษา',
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
             'rgba(54, 162, 235, 0.2)',
@@ -69,13 +74,13 @@ export class StaffReqpositionPage implements OnInit {
             'rgba(255, 159, 64, 0.2)',
             'rgba(255, 159, 64, 0.2)'
           ],
-          data: this.countreq,
+          data: this.dataposition,
           borderWidth: 1
         }]
       },
       options: {
         legend: {
-          position: "bottom",
+          position: 'bottom',
           display: true,
           labels: {
             padding: 15,
