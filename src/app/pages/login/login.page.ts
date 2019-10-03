@@ -10,10 +10,8 @@ import { Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
 
-  @ViewChild('username', { static: false }) loguser;
-  @ViewChild('password', { static: true }) logpassword;
-  // @ViewChild('username') loguser;
-  // @ViewChild('password') logpassword;
+  @ViewChild('username') loguser;
+  @ViewChild('password') logpassword;
 
   constructor(public navCtrl: NavController, public router: Router) { }
 

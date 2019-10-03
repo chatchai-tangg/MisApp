@@ -24,7 +24,7 @@ export class MenuPage implements OnInit {
         },
         {
           title: 'ผู้ขอทุนการศึกษา',
-          url: '/menu/student',
+          url: '/menu/staff-reqposition',
           icon: 'logo-google'
         }
       ]
@@ -34,15 +34,11 @@ export class MenuPage implements OnInit {
       open: false,
       children: [
         {
-          title: 'บุคลากร',
-          url: '/menu/staff',
-          icon: 'logo-ionic'
-        },
-        {
           title: 'นักศึกษา',
           url: '/menu/student',
           icon: 'logo-google'
-        }
+        },
+
       ]
     }
   ];

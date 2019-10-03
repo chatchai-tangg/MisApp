@@ -1,4 +1,4 @@
-import { Component, OnInit,ViewChild} from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Chart } from 'chart.js';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
@@ -7,7 +7,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
   templateUrl: './staff.page.html',
   styleUrls: ['./staff.page.scss'],
 })
-export class StaffPage implements OnInit {  
+export class StaffPage implements OnInit {
   barChart: any;
   list: any;
   data1: any;
@@ -23,13 +23,11 @@ export class StaffPage implements OnInit {
   constructor(private http: HttpClient) { }
 
   get_data() {
-    let labels: any = [];
-    let data: any;
     this.http.get('http://203.158.144.140/APIchart/charts/Employee')
       .subscribe((res: any) => {
         this.list = res.Table;
-        this.data1 = res.Table.map(res => res.Total)
-        this.dataname = res.Table.map(res => res.et_name)
+        this.data1 = res.Table.map(res => res.Total);
+        this.dataname = res.Table.map(res => res.et_name);
         // console.log(this.data1)
         // console.log(this.dataname)
         this.barChartMethod();
@@ -45,7 +43,7 @@ export class StaffPage implements OnInit {
     this.chart = new Chart(ctx, {
       // The type of chart we want to create
       type: 'pie',
-      // The data for our dataset      
+      // The data for our dataset 
       data: {
         labels: this.dataname,
         datasets: [{
@@ -82,6 +80,4 @@ export class StaffPage implements OnInit {
       }
     });
   }
-  
-
 }

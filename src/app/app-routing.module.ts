@@ -3,11 +3,14 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'login', loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule) },
+  { path: 'menu', loadChildren: () => import('./pages/menu/menu.module').then(m => m.MenuPageModule) },
   { path: 'main', loadChildren: './pages/main/main.module#MainPageModule' },
   { path: 'staff', loadChildren: './pages/staff/staff.module#StaffPageModule' },
-  { path: 'student', loadChildren: './pages/student/student.module#StudentPageModule' },  
-  { path: 'menu', loadChildren: './pages/menu/menu.module#MenuPageModule' },
+  { path: 'student', loadChildren: './pages/student/student.module#StudentPageModule' },
+  { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
+  { path: 'staff-reqposition', loadChildren: './pages/staff-reqposition/staff-reqposition.module#StaffReqpositionPageModule' },  { path: 'studentdistfac', loadChildren: './pages/studentdistfac/studentdistfac.module#StudentdistfacPageModule' },
+
+
 ];
 
 @NgModule({
