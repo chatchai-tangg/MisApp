@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
-import { HttpClient,  } from '@angular/common/http';
+import { HttpClient, } from '@angular/common/http';
 
 @Component({
   selector: 'app-staffscholar',
@@ -38,58 +38,38 @@ export class StaffscholarPage implements OnInit {
 
   ngOnInit() {
     this.get_reqscholar();
+    this.Chartscholar();
   }
 
   Chartscholar() {
     var ctxscholar = (<any>document.getElementById('Chartscholar')).getContext('2d');
     this.chart = new Chart(ctxscholar, {
       // The type of chart we want to create
-      type: 'horizontalBar',
+      type: 'bar',
       // The data for our dataset
       data: {
-        labels: this.datanameposition,
+        labels: ['ศึกษาต่อภายในประเทศ (ภาคปกติ)', 'ศึกษาต่อภายในประเทศ (ภาคนอกเวลา)'],
         datasets: [{
-          label: 'ระดับการศึกษา',
+          label: 'ผู้ขอทุนการศึกษา',
+          data: ['257', '24'],
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
             'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)',
-            'rgba(255, 159, 64, 0.2)',
-            'rgba(255, 159, 64, 0.2)',
-            'rgba(255, 159, 64, 0.2)',
-            'rgba(255, 159, 64, 0.2)'
           ],
           borderColor: [
             'rgba(255,99,132,1)',
             'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)',
-            'rgba(255, 159, 64, 0.2)',
-            'rgba(255, 159, 64, 0.2)',
-            'rgba(255, 159, 64, 0.2)',
-            'rgba(255, 159, 64, 0.2)'
+
           ],
-          data: this.dataposition,
           borderWidth: 1
         }]
       },
       options: {
         legend: {
-          position: 'bottom',
-          display: true,
           labels: {
-            padding: 15,
-            boxWidth: 20
           },
-          render: 'value'
         },
       }
     });
   }
-
 }

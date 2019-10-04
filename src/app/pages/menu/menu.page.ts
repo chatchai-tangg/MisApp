@@ -20,17 +20,22 @@ export class MenuPage implements OnInit {
         {
           title: 'บุคลากร',
           url: '/menu/staff',
-          icon: 'logo-ionic'
+          icon: 'person'
         },
         {
-          title: 'ผู้ขอทุนการศึกษา',
+          title: 'ขอตำแหน่งวิชาการ',
           url: '/menu/staff-reqposition',
-          icon: 'logo-google'
+          icon: 'stats'
         },
         {
-          title: 'ระดับการศึกษา',
+          title: 'ขอทุนศึกษาต่อ',
           url: '/menu/staffscholar',
-          icon: 'logo-google'
+          icon: 'school'
+        },
+        {
+          title: 'จำแนกบุคลากรตามการศึกษา',
+          url: '/menu/staffdistedu',
+          icon: 'school'
         }
       ]
     },
@@ -41,7 +46,7 @@ export class MenuPage implements OnInit {
         {
           title: 'นักศึกษา',
           url: '/menu/student',
-          icon: 'logo-google'
+          icon: 'person'
         },
 
       ]

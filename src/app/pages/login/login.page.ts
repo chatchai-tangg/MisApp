@@ -22,10 +22,10 @@ export class LoginPage implements OnInit {
     // alert('password: ' + this.logpassword.value);
 
     if (user === 'admin' && pass === '1234') {
-      alert('success');
+      // alert('success');
       this.router.navigate(['menu/main']);
     } else {
-      alert('false');
+      alert('ชื่อผู้ใช้ / รหัสผ่าน ผิดพลาด');
     }
 
   }
