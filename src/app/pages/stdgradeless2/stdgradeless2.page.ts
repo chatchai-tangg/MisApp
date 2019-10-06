@@ -4,49 +4,44 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-studentdistfac',
-  templateUrl: './studentdistfac.page.html',
-  styleUrls: ['./studentdistfac.page.scss'],
+  selector: 'app-stdgradeless2',
+  templateUrl: './stdgradeless2.page.html',
+  styleUrls: ['./stdgradeless2.page.scss'],
 })
-export class StudentdistfacPage implements OnInit {
-
- 
-  chartstd: any;
-  liststd: any;  
-  list: any;
-  cstd: any;
-  facstd: any;
-  yearstd: any;
+export class Stdgradeless2Page implements OnInit {
+  
+  amcdyear: any;
+  total: any;
+  list:any;
+  chartstd :any;
 
   constructor(public http: HttpClient, public router: Router) { }
-
-  get_stdfiedfac() {
-    let labels: any = [];
-    let data: any;
-    this.http.get('http://203.158.144.140/APIchart/charts/Stdfiedfac')
+  
+  get_stdgradeless2() {   
+    this.http.get('http://203.158.144.140/APIchart/charts/Stdgradeless2')
       .subscribe((res: any) => {
         this.list = res.Table;
-        this.facstd = res.Table.map(res => res.FACULTYNAME)
-        this.yearstd = res.Table.map(res => res.ADMITACADYEAR)
-        this.cstd = res.Table.map(res => res.CSTD)
-        // console.log(this.list);
-        this.chartstdfiedfac();
+        this.total = res.Table.map(res => res.TOTAL);
+        this.amcdyear = res.Table.map(res => res.ADMITACADYEAR);  
+        console.log(this.list);
+        this.chartstdgrade();
+        
       });
   }
 
   ngOnInit() {
-    this.get_stdfiedfac();   
+    this.get_stdgradeless2();
   }
 
-  chartstdfiedfac() {
-    var ctx = (<any>document.getElementById('stddistfac')).getContext('2d');
+  chartstdgrade(){
+    var ctx = (<any>document.getElementById('stdgradeless2')).getContext('2d');
     this.chartstd = new Chart(ctx, {
-      type: 'line',
+      type: 'horizontalBar',
       data: {
-        labels: this.yearstd,
+        labels: this.amcdyear,
         datasets: [{
-          label: this.facstd,
-          data:  this.cstd,
+          label: 'นักศึกษาเกรดต่ำกว่า2',
+          data:  this.total,
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
             'rgba(54, 162, 235, 0.2)',

@@ -4,49 +4,43 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-studentdistfac',
-  templateUrl: './studentdistfac.page.html',
-  styleUrls: ['./studentdistfac.page.scss'],
+  selector: 'app-stdenddistfac',
+  templateUrl: './stdenddistfac.page.html',
+  styleUrls: ['./stdenddistfac.page.scss'],
 })
-export class StudentdistfacPage implements OnInit {
-
- 
-  chartstd: any;
-  liststd: any;  
+export class StdenddistfacPage implements OnInit {
   list: any;
-  cstd: any;
-  facstd: any;
-  yearstd: any;
+  total: any;
+  facname: any;
+  chartstd: any;
 
   constructor(public http: HttpClient, public router: Router) { }
 
-  get_stdfiedfac() {
-    let labels: any = [];
-    let data: any;
-    this.http.get('http://203.158.144.140/APIchart/charts/Stdfiedfac')
+  get_stdfiedfac() {   
+    this.http.get('http://203.158.144.140/APIchart/charts/Stdendbyfac')
       .subscribe((res: any) => {
         this.list = res.Table;
-        this.facstd = res.Table.map(res => res.FACULTYNAME)
-        this.yearstd = res.Table.map(res => res.ADMITACADYEAR)
-        this.cstd = res.Table.map(res => res.CSTD)
-        // console.log(this.list);
-        this.chartstdfiedfac();
+        this.total = res.Table.map(res => res.TOTAL);
+        this.facname = res.Table.map(res => res.FACULTYNAME);  
+        console.log(this.list);
+        this.chartstdenddistfac();
+        
       });
   }
 
   ngOnInit() {
-    this.get_stdfiedfac();   
+    this.get_stdfiedfac();
   }
 
-  chartstdfiedfac() {
-    var ctx = (<any>document.getElementById('stddistfac')).getContext('2d');
+  chartstdenddistfac(){
+    var ctx = (<any>document.getElementById('stdenddistfac')).getContext('2d');
     this.chartstd = new Chart(ctx, {
-      type: 'line',
+      type: 'horizontalBar',
       data: {
-        labels: this.yearstd,
+        labels: this.facname,
         datasets: [{
-          label: this.facstd,
-          data:  this.cstd,
+          label: 'นักศึกษาจบการศึกษาแบ่งตามคณะ',
+          data:  this.total,
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
             'rgba(54, 162, 235, 0.2)',
@@ -82,5 +76,9 @@ export class StudentdistfacPage implements OnInit {
       }
     });
 
-}
+  }
+  
+
+  
+
 }

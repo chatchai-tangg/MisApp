@@ -28,7 +28,7 @@ export class MenuPage implements OnInit {
           icon: 'stats'
         },
         {
-          title: 'ขอทุนศึกษาต่อ',
+          title: 'ผู้รับทุนการศึกษา',
           url: '/menu/staffscholar',
           icon: 'school'
         },
@@ -36,7 +36,12 @@ export class MenuPage implements OnInit {
           title: 'จำแนกบุคลากรตามการศึกษา',
           url: '/menu/staffdistedu',
           icon: 'school'
-        }
+        },
+        {
+          title: 'อบรม/ประชุม/สัมมนา',
+          url: '/menu/stafftrainperson',
+          icon: 'stats'
+        },
       ]
     },
     {
@@ -48,7 +53,21 @@ export class MenuPage implements OnInit {
           url: '/menu/student',
           icon: 'person'
         },
-
+        {
+          title: 'นักศึกษาแบ่งตามคณะ',
+          url: '/menu/studentdistfac',
+          icon: 'person'
+        },
+        {
+          title: 'นักศึกษาจบการศึกษา',
+          url: '/menu/stdenddistfac',
+          icon: 'person'
+        },
+        {
+          title: 'นักศึกษาเกรดต่ำกว่า 2',
+          url: '/menu/stdgradeless2',
+          icon: 'person'
+        },
       ]
     }
   ];

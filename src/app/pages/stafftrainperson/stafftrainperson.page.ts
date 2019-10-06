@@ -4,49 +4,43 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-studentdistfac',
-  templateUrl: './studentdistfac.page.html',
-  styleUrls: ['./studentdistfac.page.scss'],
+  selector: 'app-stafftrainperson',
+  templateUrl: './stafftrainperson.page.html',
+  styleUrls: ['./stafftrainperson.page.scss'],
 })
-export class StudentdistfacPage implements OnInit {
-
- 
-  chartstd: any;
-  liststd: any;  
+export class StafftrainpersonPage implements OnInit {
+  depth: any;
+  total: any;
   list: any;
-  cstd: any;
-  facstd: any;
-  yearstd: any;
+  chartstaff: any;
 
   constructor(public http: HttpClient, public router: Router) { }
 
-  get_stdfiedfac() {
-    let labels: any = [];
-    let data: any;
-    this.http.get('http://203.158.144.140/APIchart/charts/Stdfiedfac')
+  get_stafftrain() {   
+    this.http.get('http://203.158.144.140/APIchart/charts/Trainperson')
       .subscribe((res: any) => {
         this.list = res.Table;
-        this.facstd = res.Table.map(res => res.FACULTYNAME)
-        this.yearstd = res.Table.map(res => res.ADMITACADYEAR)
-        this.cstd = res.Table.map(res => res.CSTD)
-        // console.log(this.list);
-        this.chartstdfiedfac();
+        this.depth = res.Table.map(res => res.dept_name_th);
+        this.total = res.Table.map(res => res.TOTAL);  
+        console.log(this.list);
+        this.chartstfftrain();
+        
       });
   }
 
   ngOnInit() {
-    this.get_stdfiedfac();   
+    this.get_stafftrain();
   }
 
-  chartstdfiedfac() {
-    var ctx = (<any>document.getElementById('stddistfac')).getContext('2d');
-    this.chartstd = new Chart(ctx, {
-      type: 'line',
+  chartstfftrain(){
+    var ctx = (<any>document.getElementById('stafftrain')).getContext('2d');
+    this.chartstaff = new Chart(ctx, {
+      type: 'bar',
       data: {
-        labels: this.yearstd,
+        labels: this.depth,
         datasets: [{
-          label: this.facstd,
-          data:  this.cstd,
+          label: 'อบรม/ประชุม/สัมมนา',
+          data:  this.total,
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
             'rgba(54, 162, 235, 0.2)',
@@ -81,6 +75,6 @@ export class StudentdistfacPage implements OnInit {
         }
       }
     });
+  }
 
-}
 }
