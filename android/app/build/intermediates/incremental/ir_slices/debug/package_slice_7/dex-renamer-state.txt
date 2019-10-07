@@ -1,0 +1,4 @@
+#Mon Oct 07 16:01:26 ICT 2019
+base.0=D\:\\IONIC\\MISApp\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\7
+path.0=classes.dex
+renamed.0=classes.dex
