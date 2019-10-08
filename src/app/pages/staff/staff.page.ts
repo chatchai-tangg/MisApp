@@ -13,12 +13,9 @@ export class StaffPage implements OnInit {
   data1: any;
   dataname: any;
   chart: any;
-  dataposition: any;
-  datanameposition: any;
-  dlname: any;
-  degree: any;
-  etname: any;
   countreq: any;
+
+
 
   constructor(private http: HttpClient) { }
 
@@ -28,8 +25,7 @@ export class StaffPage implements OnInit {
         this.list = res.Table;
         this.data1 = res.Table.map(res => res.Total);
         this.dataname = res.Table.map(res => res.et_name);
-        // console.log(this.data1)
-        // console.log(this.dataname)
+
         this.barChartMethod();
       });
   }
@@ -69,15 +65,16 @@ export class StaffPage implements OnInit {
         }]
       },
       options: {
+        responsive: true,
         legend: {
-          position: "bottom",
           display: true,
-          labels: {
-            padding: 15,
-            boxWidth: 20
-          }
-        },
-      }
+          position: 'bottom',
+
+        }
+      },
     });
   }
 }
+
+
+
