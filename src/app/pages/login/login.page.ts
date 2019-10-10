@@ -15,13 +15,13 @@ export class LoginPage implements OnInit {
 
   constructor(public navCtrl: NavController, public router: Router) { }
 
-  async Onclickbtn() {
+  async chcklogin() {
     const user: any = this.loguser.value;
     const pass: any = this.logpassword.value;
     // alert('username: ' + this.loguser.value);
     // alert('password: ' + this.logpassword.value);
 
-    if (user === 'admin' && pass === '1234') {
+    if (user === 'admin' && pass === '1234' || user === 'test' && pass === '1111') {
       // alert('success');
       this.router.navigate(['menu/main']);
     } else {
