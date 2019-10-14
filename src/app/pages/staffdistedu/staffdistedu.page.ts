@@ -15,14 +15,24 @@ export class StaffdisteduPage implements OnInit {
   res: any;
   list: any;
 
-  constructor(private http: HttpClient) { }
+  constructor(public http: HttpClient) { }
+
+  // get_classifiededu() {
+  //   this.http.get('http://203.158.144.140/APIchart/charts/Classifiededu')
+  //     .subscribe((res: any) => {
+  //       this.list = res.Table;
+  //       this.dlname = res.Table.map(res => res.dl_name_th);
+  //       this.degree = res.Table.map(res => res.degreeclass);
+  //       this.Chartdistedu();
+  //     });
+  // }
 
   get_classifiededu() {
-    this.http.get('http://203.158.144.140/APIchart/charts/Classifiededu')
+    this.http.get('http://203.158.144.140/APIchart/charts/Empdistedu')
       .subscribe((res: any) => {
         this.list = res.Table;
-        this.dlname = res.Table.map(res => res.dl_name_th);
-        this.degree = res.Table.map(res => res.degreeclass);
+        this.dlname = res.Table.map(res => res.education_level);
+        this.degree = res.Table.map(res => res.total);
         this.Chartdistedu();
       });
   }

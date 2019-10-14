@@ -17,12 +17,24 @@ export class Stdgradeless2Page implements OnInit {
 
   constructor(public http: HttpClient, public router: Router) { }
   
+  // get_stdgradeless2() {   
+  //   this.http.get('http://203.158.144.140/APIchart/charts/Stdgradeless2')
+  //     .subscribe((res: any) => {
+  //       this.list = res.Table;
+  //       this.total = res.Table.map(res => res.TOTAL);
+  //       this.amcdyear = res.Table.map(res => res.ADMITACADYEAR);  
+  //       console.log(this.list);
+  //       this.chartstdgrade();
+        
+  //     });
+  // }
+
   get_stdgradeless2() {   
     this.http.get('http://203.158.144.140/APIchart/charts/Stdgradeless2')
       .subscribe((res: any) => {
         this.list = res.Table;
-        this.total = res.Table.map(res => res.TOTAL);
-        this.amcdyear = res.Table.map(res => res.ADMITACADYEAR);  
+        this.total = res.Table.map(res => res.total);
+        this.amcdyear = res.Table.map(res => res.admitacadyear);  
         console.log(this.list);
         this.chartstdgrade();
         

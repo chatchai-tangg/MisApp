@@ -22,22 +22,33 @@ export class StaffscholarPage implements OnInit {
 
   constructor(public http: HttpClient) { }
 
+  // get_reqscholar() {
+  //   let labels: any = [];
+  //   let data: any;
+  //   this.http.get('http://203.158.144.140/APIchart/charts/Reqscholar')
+  //     .subscribe((res: any) => {
+  //       this.list = res.Table;
+  //       this.dataposition = res.Table.map(res => res.ภายในประเทศ);
+  //       this.datanameposition = res.Table.map(res => res.ต่างประเทศ);
+  //       // console.log(this.dataposition)
+  //       // console.log(this.datanameposition)
+  //       // this.get_reqscholar();
+  //     });
+  // }
+
   get_reqscholar() {
     let labels: any = [];
     let data: any;
-    this.http.get('http://203.158.144.140/APIchart/charts/Reqscholar')
+    this.http.get('http://203.158.144.140/APIchart/charts/Empscholar')
       .subscribe((res: any) => {
         this.list = res.Table;
         this.dataposition = res.Table.map(res => res.ภายในประเทศ);
-        this.datanameposition = res.Table.map(res => res.ต่างประเทศ);
-        // console.log(this.dataposition)
-        // console.log(this.datanameposition)
-        // this.get_reqscholar();
+        this.datanameposition = res.Table.map(res => res.ต่างประเทศ);        
+        this.get_reqscholar();
       });
   }
 
-  ngOnInit() {
-    this.get_reqscholar();
+  ngOnInit() {    
     this.Chartscholar();
   }
 

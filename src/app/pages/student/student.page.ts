@@ -23,14 +23,26 @@ export class StudentPage implements OnInit {
   facstd: any;
   yearstd: any;
 
+  // get_stdyears() {
+  //   let labels: any = [];
+  //   let data: any;
+  //   this.http.get('http://203.158.144.140/APIchart/charts/Stdyears')
+  //     .subscribe((res: any) => {
+  //       this.list = res.Table;
+  //       this.dyears = res.Table.map(res => res.ACADYEAR)
+  //       this.dtotal = res.Table.map(res => res.TOTAL)
+  //       this.testt();
+  //     });
+  // }
+
   get_stdyears() {
     let labels: any = [];
     let data: any;
-    this.http.get('http://203.158.144.140/APIchart/charts/Stdyears')
+    this.http.get('http://203.158.144.140/APIchart/charts/Stdall')
       .subscribe((res: any) => {
         this.list = res.Table;
-        this.dyears = res.Table.map(res => res.ACADYEAR)
-        this.dtotal = res.Table.map(res => res.TOTAL)
+        this.dyears = res.Table.map(res => res.acadyear)
+        this.dtotal = res.Table.map(res => res.total)
         this.testt();
       });
   }

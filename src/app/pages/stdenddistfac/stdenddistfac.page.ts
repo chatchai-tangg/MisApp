@@ -16,12 +16,24 @@ export class StdenddistfacPage implements OnInit {
 
   constructor(public http: HttpClient, public router: Router) { }
 
+  // get_stdfiedfac() {   
+  //   this.http.get('http://203.158.144.140/APIchart/charts/Stdendbyfac')
+  //     .subscribe((res: any) => {
+  //       this.list = res.Table;
+  //       this.total = res.Table.map(res => res.TOTAL);
+  //       this.facname = res.Table.map(res => res.FACULTYNAME);  
+  //       console.log(this.list);
+  //       this.chartstdenddistfac();
+        
+  //     });
+  // }
+
   get_stdfiedfac() {   
-    this.http.get('http://203.158.144.140/APIchart/charts/Stdendbyfac')
+    this.http.get('http://203.158.144.140/APIchart/charts/Std_enddistfac')
       .subscribe((res: any) => {
         this.list = res.Table;
-        this.total = res.Table.map(res => res.TOTAL);
-        this.facname = res.Table.map(res => res.FACULTYNAME);  
+        this.total = res.Table.map(res => res.total);
+        this.facname = res.Table.map(res => res.facultyname);  
         console.log(this.list);
         this.chartstdenddistfac();
         

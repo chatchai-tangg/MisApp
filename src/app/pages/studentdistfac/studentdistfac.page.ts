@@ -20,15 +20,29 @@ export class StudentdistfacPage implements OnInit {
 
   constructor(public http: HttpClient, public router: Router) { }
 
+  // get_stdfiedfac() {
+  //   let labels: any = [];
+  //   let data: any;
+  //   this.http.get('http://203.158.144.140/APIchart/charts/Stdfiedfac')
+  //     .subscribe((res: any) => {
+  //       this.list = res.Table;
+  //       this.facstd = res.Table.map(res => res.FACULTYNAME)
+  //       this.yearstd = res.Table.map(res => res.ADMITACADYEAR)
+  //       this.cstd = res.Table.map(res => res.CSTD)
+  //       // console.log(this.list);
+  //       this.chartstdfiedfac();
+  //     });
+  // }
+
   get_stdfiedfac() {
     let labels: any = [];
     let data: any;
-    this.http.get('http://203.158.144.140/APIchart/charts/Stdfiedfac')
+    this.http.get('http://203.158.144.140/APIchart/charts/Std_distfac')
       .subscribe((res: any) => {
         this.list = res.Table;
-        this.facstd = res.Table.map(res => res.FACULTYNAME)
-        this.yearstd = res.Table.map(res => res.ADMITACADYEAR)
-        this.cstd = res.Table.map(res => res.CSTD)
+        this.facstd = res.Table.map(res => res.facultyname)
+        this.yearstd = res.Table.map(res => res.admitacadyear)
+        this.cstd = res.Table.map(res => res.total)
         // console.log(this.list);
         this.chartstdfiedfac();
       });

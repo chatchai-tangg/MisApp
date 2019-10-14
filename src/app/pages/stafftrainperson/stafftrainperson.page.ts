@@ -16,12 +16,24 @@ export class StafftrainpersonPage implements OnInit {
 
   constructor(public http: HttpClient, public router: Router) { }
 
+  // get_stafftrain() {   
+  //   this.http.get('http://203.158.144.140/APIchart/charts/Trainperson')
+  //     .subscribe((res: any) => {
+  //       this.list = res.Table;
+  //       this.depth = res.Table.map(res => res.dept_name_th);
+  //       this.total = res.Table.map(res => res.TOTAL);  
+  //       console.log(this.list);
+  //       this.chartstfftrain();
+        
+  //     });      
+  // }
+
   get_stafftrain() {   
-    this.http.get('http://203.158.144.140/APIchart/charts/Trainperson')
+    this.http.get('http://203.158.144.140/APIchart/charts/Emptrainstaff')
       .subscribe((res: any) => {
         this.list = res.Table;
-        this.depth = res.Table.map(res => res.dept_name_th);
-        this.total = res.Table.map(res => res.TOTAL);  
+        this.depth = res.Table.map(res => res.facultyname);
+        this.total = res.Table.map(res => res.total);  
         console.log(this.list);
         this.chartstfftrain();
         

@@ -19,12 +19,23 @@ export class StaffReqpositionPage implements OnInit {
 
   constructor(public http: HttpClient) { }
 
+  // get_reqposition() {
+  //   this.http.get('http://203.158.144.140/APIchart/charts/Reqposition')
+  //     .subscribe((res: any) => {
+  //       this.list = res.Table;
+  //       this.etname = res.Table.map(res => res.ประเภท);
+  //       this.countreq = res.Table.map(res => res.จำนวน);
+  //       console.log(this.etname);
+  //       this.Chartreqposition();
+  //     });
+  // }
+
   get_reqposition() {
-    this.http.get('http://203.158.144.140/APIchart/charts/Reqposition')
+    this.http.get('http://203.158.144.140/APIchart/charts/Empreqposition')
       .subscribe((res: any) => {
         this.list = res.Table;
-        this.etname = res.Table.map(res => res.ประเภท);
-        this.countreq = res.Table.map(res => res.จำนวน);
+        this.etname = res.Table.map(res => res.stafftype);
+        this.countreq = res.Table.map(res => res.total);
         console.log(this.etname);
         this.Chartreqposition();
       });
