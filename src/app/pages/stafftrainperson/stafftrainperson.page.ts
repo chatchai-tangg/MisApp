@@ -24,27 +24,67 @@ export class StafftrainpersonPage implements OnInit {
   //       this.total = res.Table.map(res => res.TOTAL);  
   //       console.log(this.list);
   //       this.chartstfftrain();
-        
-  //     });      
+  //     });
   // }
 
-  get_stafftrain() {   
-    this.http.get('http://203.158.144.140/APIchart/charts/Emptrainstaff')
+  get_stafftrainbydivi() {
+    this.http.get('http://203.158.144.140/APIchart/charts/Emptrainstaffbydivi')
       .subscribe((res: any) => {
         this.list = res.Table;
         this.depth = res.Table.map(res => res.facultyname);
-        this.total = res.Table.map(res => res.total);  
+        this.total = res.Table.map(res => res.total);
         console.log(this.list);
         this.chartstfftrain();
-        
+
       });
   }
 
-  ngOnInit() {
-    this.get_stafftrain();
+  get_stafftrainbyfac() {
+    this.http.get('http://203.158.144.140/APIchart/charts/Emptrainstaffbyfac')
+      .subscribe((res: any) => {
+        this.list = res.Table;
+        this.depth = res.Table.map(res => res.facultyname);
+        this.total = res.Table.map(res => res.total);
+        console.log(this.list);
+        this.chartstfftrainbyfac();
+
+      });
   }
 
-  chartstfftrain(){
+  get_stafftrainbycenter() {
+    this.http.get('http://203.158.144.140/APIchart/charts/Emptrainstaffbycenter')
+      .subscribe((res: any) => {
+        this.list = res.Table;
+        this.depth = res.Table.map(res => res.facultyname);
+        this.total = res.Table.map(res => res.total);
+        console.log(this.list);
+        this.chartstfftrainbycenter();
+
+      });
+  }
+
+
+  get_stafftrainbyinst() {
+    this.http.get('http://203.158.144.140/APIchart/charts/Emptrainstaffbyinst')
+      .subscribe((res: any) => {
+        this.list = res.Table;
+        this.depth = res.Table.map(res => res.facultyname);
+        this.total = res.Table.map(res => res.total);
+        console.log(this.list);
+        this.chartstfftrainbyinst();
+
+      });
+  }
+
+
+  ngOnInit() {
+    this.get_stafftrainbydivi();
+    this.get_stafftrainbyfac();
+    this.get_stafftrainbycenter();
+    this.get_stafftrainbyinst();
+  }
+
+  chartstfftrain() {
     var ctx = (<any>document.getElementById('stafftrain')).getContext('2d');
     this.chartstaff = new Chart(ctx, {
       type: 'bar',
@@ -52,7 +92,7 @@ export class StafftrainpersonPage implements OnInit {
         labels: this.depth,
         datasets: [{
           label: 'อบรม/ประชุม/สัมมนา',
-          data:  this.total,
+          data: this.total,
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
             'rgba(54, 162, 235, 0.2)',
@@ -68,7 +108,7 @@ export class StafftrainpersonPage implements OnInit {
             'rgba(75, 192, 192, 1)',
             'rgba(153, 102, 255, 1)',
             'rgba(255, 159, 64, 1)'
-          ],          
+          ],
           borderWidth: 1
         }]
       },
@@ -81,8 +121,135 @@ export class StafftrainpersonPage implements OnInit {
           position: 'bottom',
           display: true,
           labels: {
-            padding: 15,
-            boxWidth: 20
+          }
+        }
+      }
+    });
+  }
+
+  chartstfftrainbyfac() {
+    var ctx = (<any>document.getElementById('stafftrainfac')).getContext('2d');
+    this.chartstaff = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: this.depth,
+        datasets: [{
+          label: 'อบรม/ประชุม/สัมมนา',
+          data: this.total,
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)'
+          ],
+          borderColor: [
+            'rgba(255,99,132,1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          xAxes: [
+          ]
+        },
+        legend: {
+          position: 'bottom',
+          display: true,
+          labels: {
+          }
+        }
+      }
+    });
+  }
+
+  chartstfftrainbycenter() {
+    var ctx = (<any>document.getElementById('stafftraincenter')).getContext('2d');
+    this.chartstaff = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: this.depth,
+        datasets: [{
+          label: 'อบรม/ประชุม/สัมมนา',
+          data: this.total,
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)'
+          ],
+          borderColor: [
+            'rgba(255,99,132,1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          xAxes: [
+          ]
+        },
+        legend: {
+          position: 'bottom',
+          display: true,
+          labels: {
+          }
+        }
+      }
+    });
+  }
+
+  chartstfftrainbyinst() {
+    var ctx = (<any>document.getElementById('stafftraininst')).getContext('2d');
+    this.chartstaff = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: this.depth,
+        datasets: [{
+          label: 'อบรม/ประชุม/สัมมนา',
+          data: this.total,
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)'
+          ],
+          borderColor: [
+            'rgba(255,99,132,1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          xAxes: [
+          ]
+        },
+        legend: {
+          position: 'bottom',
+          display: true,
+          labels: {
           }
         }
       }
