@@ -14,6 +14,7 @@ const routes: Routes = [
   { path: 'stdenddistfac', loadChildren: './pages/stdenddistfac/stdenddistfac.module#StdenddistfacPageModule' },
   { path: 'stdgradeless2', loadChildren: './pages/stdgradeless2/stdgradeless2.module#Stdgradeless2PageModule' },
   { path: 'stafftrainperson', loadChildren: './pages/stafftrainperson/stafftrainperson.module#StafftrainpersonPageModule' },
+  { path: 'adddata', loadChildren: './pages/adddata/adddata.module#AdddataPageModule' },
 
 
 ];

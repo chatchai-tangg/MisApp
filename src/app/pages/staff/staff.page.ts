@@ -76,9 +76,14 @@ export class StaffPage implements OnInit {
       },
       options: {
         responsive: true,
+        padding: 50,
         legend: {
           display: true,
           position: 'bottom',
+          
+          labels:{
+            boxWidth: 20,            
+          }
 
         }
       },

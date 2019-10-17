@@ -9,7 +9,7 @@ export class MenuPage implements OnInit {
 
   page = [
     {
-      title: 'Main',
+      title: 'หน้าหลัก',
       url: '/menu/main',
       icon: 'home'
     },
