@@ -44,7 +44,15 @@ export class StaffPage implements OnInit {
     this.get_data();
   }
 
+  
+
   barChartMethod() {
+    Chart.NewLegend = Chart.Legend.extend({
+      afterFit: function() {
+        this.height = this.height + 50;
+      },
+    });
+    
     var ctx = (<any>document.getElementById('canvas-chart')).getContext('2d');
     this.chart = new Chart(ctx, {
       // The type of chart we want to create
@@ -74,18 +82,41 @@ export class StaffPage implements OnInit {
           borderWidth: 1
         }]
       },
-      options: {
+      options: {        
         responsive: true,
-        padding: 50,
-        legend: {
-          display: true,
-          position: 'bottom',
-          
-          labels:{
-            boxWidth: 20,            
-          }
-
-        }
+		maintainAspectRatio: true,
+		legend: {
+			position : 'bottom',
+			labels : {
+				fontColor: 'rgb(154, 154, 154)',
+				fontSize: 13,
+				usePointStyle : true,
+				padding: 16
+			}
+		},
+		pieceLabel: {
+			render: 'percentage',
+			fontColor: 'white',
+			fontSize: 11,
+		},
+		tooltips: false,
+		layout: {
+			padding: {
+				left: 20,
+				right: 20,
+				top: 20,
+				bottom: 0
+			}
+		}
+        // responsive: true,              
+        // legend: {
+        //   display: true,
+        //   position: 'bottom',        
+        //   labels:{
+        //     padding: 13,
+        //     boxWidth: 20,         
+        //   }
+        // }       
       },
     });
   }
