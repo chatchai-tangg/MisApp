@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Chart } from 'chart.js';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Component({
@@ -82,32 +83,33 @@ export class StaffPage implements OnInit {
           borderWidth: 1
         }]
       },
+      plugins: [ChartDataLabels],
       options: {        
         responsive: true,
-		maintainAspectRatio: true,
-		legend: {
-			position : 'bottom',
-			labels : {
-				fontColor: 'rgb(154, 154, 154)',
-				fontSize: 13,
-				usePointStyle : true,
-				padding: 16
-			}
-		},
-		pieceLabel: {
-			render: 'percentage',
-			fontColor: 'white',
-			fontSize: 11,
-		},
-		tooltips: false,
-		layout: {
-			padding: {
-				left: 20,
-				right: 20,
-				top: 20,
-				bottom: 0
-			}
-		}
+        plugins: {
+          datalabels: {
+            formatter: function(value, context) {
+              return Math.round(value*100) + '%';
+            },            
+          }           
+        },     
+        legend: {
+          position : 'bottom',
+          labels : {            
+            fontSize: 11,
+            usePointStyle : true,
+            padding: 20
+          }
+        },        
+        layout: {
+          padding: {
+            left: 20,
+            right: 20,
+            top: 20,
+            bottom: 0
+          }
+        }
+      
         // responsive: true,              
         // legend: {
         //   display: true,
