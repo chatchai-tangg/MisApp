@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Chart } from 'chart.js';
-import ChartDataLabels from 'chartjs-plugin-datalabels';
+import * as Chart from 'chart.js';
+// import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Component({
@@ -48,11 +48,11 @@ export class StaffPage implements OnInit {
   
 
   barChartMethod() {
-    Chart.NewLegend = Chart.Legend.extend({
-      afterFit: function() {
-        this.height = this.height + 50;
-      },
-    });
+    // Chart.NewLegend = Chart.Legend.extend({
+    //   afterFit: function() {
+    //     this.height = this.height + 50;
+    //   },
+    // });
     
     var ctx = (<any>document.getElementById('canvas-chart')).getContext('2d');
     this.chart = new Chart(ctx, {
@@ -83,14 +83,12 @@ export class StaffPage implements OnInit {
           borderWidth: 1
         }]
       },
-      plugins: [ChartDataLabels],
+      // plugins: [ChartDataLabels],      
       options: {        
         responsive: true,
         plugins: {
           datalabels: {
-            formatter: function(value, context) {
-              return Math.round(value*100) + '%';
-            },            
+                       
           }           
         },     
         legend: {
