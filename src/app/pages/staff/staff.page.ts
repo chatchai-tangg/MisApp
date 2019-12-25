@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import * as Chart from 'chart.js';
-import ChartDataLabels from 'chartjs-plugin-datalabels';
+import { Chart } from 'chart.js';
+// import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Component({
@@ -45,8 +45,6 @@ export class StaffPage implements OnInit {
     this.get_data();
   }
 
-
-
   barChartMethod() {
     // Chart.NewLegend = Chart.Legend.extend({
     //   afterFit: function() {
@@ -83,7 +81,7 @@ export class StaffPage implements OnInit {
           borderWidth: 1
         }]
       },
-      plugins: [ChartDataLabels],
+
       options: {
         responsive: true,
         plugins: {

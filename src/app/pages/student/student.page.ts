@@ -83,9 +83,9 @@ export class StudentPage implements OnInit {
       options: {
         scales: {
           xAxes: [{
-            barThickness: 10,
-            maxBarThickness: 10,
-            minBarLength: 2,
+            // barThickness: 10,
+            // maxBarThickness: 10,
+            // minBarLength: 2,
             gridLines: {
               offsetGridLines: true
             }

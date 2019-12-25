@@ -92,7 +92,6 @@ export class StaffReqpositionPage implements OnInit {
             padding: 15,
             boxWidth: 20
           },
-          render: 'value'
         },
       }
     });

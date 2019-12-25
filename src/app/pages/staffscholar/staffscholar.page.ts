@@ -43,12 +43,12 @@ export class StaffscholarPage implements OnInit {
       .subscribe((res: any) => {
         this.list = res.Table;
         this.dataposition = res.Table.map(res => res.ภายในประเทศ);
-        this.datanameposition = res.Table.map(res => res.ต่างประเทศ);        
+        this.datanameposition = res.Table.map(res => res.ต่างประเทศ);
         this.get_reqscholar();
       });
   }
 
-  ngOnInit() {    
+  ngOnInit() {
     this.Chartscholar();
   }
 
@@ -62,7 +62,7 @@ export class StaffscholarPage implements OnInit {
         labels: ['ศึกษาต่อภายในประเทศ (ภาคปกติ)', 'ศึกษาต่อภายในประเทศ (ภาคนอกเวลา)'],
         datasets: [{
           label: 'ผู้ขอทุนการศึกษา',
-          data: ['257', '24'],
+          data: [257, 24],
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
             'rgba(54, 162, 235, 0.2)',
