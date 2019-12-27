@@ -85,6 +85,11 @@ export class StaffReqpositionPage implements OnInit {
         }]
       },
       options: {
+        plugins: {
+          labels: {
+            render: 'value',
+          }
+        },
         legend: {
           position: "bottom",
           display: true,

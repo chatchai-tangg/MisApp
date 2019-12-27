@@ -9,14 +9,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./stdgradeless2.page.scss'],
 })
 export class Stdgradeless2Page implements OnInit {
-  
+
   amcdyear: any;
   total: any;
-  list:any;
-  chartstd :any;
+  list: any;
+  chartstd: any;
 
   constructor(public http: HttpClient, public router: Router) { }
-  
+
   // get_stdgradeless2() {   
   //   this.http.get('http://203.158.144.140/APIchart/charts/Stdgradeless2')
   //     .subscribe((res: any) => {
@@ -25,19 +25,19 @@ export class Stdgradeless2Page implements OnInit {
   //       this.amcdyear = res.Table.map(res => res.ADMITACADYEAR);  
   //       console.log(this.list);
   //       this.chartstdgrade();
-        
+
   //     });
   // }
 
-  get_stdgradeless2() {   
+  get_stdgradeless2() {
     this.http.get('http://203.158.144.140/APIchart/charts/Stdgradeless2')
       .subscribe((res: any) => {
         this.list = res.Table;
-        this.total = res.Table.map(res => res.total);
-        this.amcdyear = res.Table.map(res => res.admitacadyear);  
+        this.total = res.Table.map(res => res.TOTAL);
+        this.amcdyear = res.Table.map(res => res.ADMITACADYEAR);
         console.log(this.list);
         this.chartstdgrade();
-        
+
       });
   }
 
@@ -45,7 +45,7 @@ export class Stdgradeless2Page implements OnInit {
     this.get_stdgradeless2();
   }
 
-  chartstdgrade(){
+  chartstdgrade() {
     var ctx = (<any>document.getElementById('stdgradeless2')).getContext('2d');
     this.chartstd = new Chart(ctx, {
       type: 'horizontalBar',
@@ -53,7 +53,7 @@ export class Stdgradeless2Page implements OnInit {
         labels: this.amcdyear,
         datasets: [{
           label: 'นักศึกษาเกรดต่ำกว่า2',
-          data:  this.total,
+          data: this.total,
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
             'rgba(54, 162, 235, 0.2)',
@@ -69,14 +69,13 @@ export class Stdgradeless2Page implements OnInit {
             'rgba(75, 192, 192, 1)',
             'rgba(153, 102, 255, 1)',
             'rgba(255, 159, 64, 1)'
-          ],          
+          ],
           borderWidth: 1
         }]
       },
       options: {
-        scales: {
-          xAxes: [
-          ]
+        plugins: {
+
         },
         legend: {
           position: 'bottom',
@@ -89,5 +88,5 @@ export class Stdgradeless2Page implements OnInit {
       }
     });
 
-}
+  }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Chart } from 'chart.js';
 // import ChartDataLabels from 'chartjs-plugin-datalabels';
+import 'chartjs-plugin-labels';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Component({
@@ -81,13 +82,22 @@ export class StaffPage implements OnInit {
           borderWidth: 1
         }]
       },
-
+      // plugins: [ChartDataLabels],
       options: {
         responsive: true,
         plugins: {
           datalabels: {
-
-          }
+            color: 'black',
+            formatter: (value, ctx) => {
+              let sum = 0;
+              let dataArr = ctx.chart.data.datasets[0].data;
+              dataArr.map(data => {
+                sum += data;
+              });
+              let percentage = (value * 100 / sum).toFixed(1) + "%";
+              return percentage;
+            },
+          },
         },
         legend: {
           position: 'bottom',
@@ -97,14 +107,14 @@ export class StaffPage implements OnInit {
             padding: 20
           }
         },
-        layout: {
-          padding: {
-            left: 20,
-            right: 20,
-            top: 20,
-            bottom: 0
-          }
-        }
+        // layout: {
+        //   padding: {
+        //     left: 20,
+        //     right: 20,
+        //     top: 20,
+        //     bottom: 0
+        //   }
+        // }
 
         // responsive: true,              
         // legend: {

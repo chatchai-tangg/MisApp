@@ -45,7 +45,7 @@ export class StaffdisteduPage implements OnInit {
     var ctxdistedu = (<any>document.getElementById('Chartdistedu')).getContext('2d');
     this.chart = new Chart(ctxdistedu, {
       // The type of chart we want to create
-      type: 'horizontalBar',
+      type: 'doughnut',
       // The data for our dataset      
       data: {
         labels: this.dlname,

@@ -76,9 +76,10 @@ export class StaffscholarPage implements OnInit {
         }]
       },
       options: {
-        legend: {
+        plugins: {
           labels: {
-          },
+            render: 'value',
+          }
         },
       }
     });

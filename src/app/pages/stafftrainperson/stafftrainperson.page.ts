@@ -113,9 +113,10 @@ export class StafftrainpersonPage implements OnInit {
         }]
       },
       options: {
-        scales: {
-          xAxes: [
-          ]
+        plugins: {
+          labels: {
+            render: 'value',
+          }
         },
         legend: {
           position: 'bottom',
@@ -156,9 +157,10 @@ export class StafftrainpersonPage implements OnInit {
         }]
       },
       options: {
-        scales: {
-          xAxes: [
-          ]
+        plugins: {
+          labels: {
+            render: 'value',
+          }
         },
         legend: {
           position: 'bottom',
@@ -199,9 +201,10 @@ export class StafftrainpersonPage implements OnInit {
         }]
       },
       options: {
-        scales: {
-          xAxes: [
-          ]
+        plugins: {
+          labels: {
+            render: 'value',
+          }
         },
         legend: {
           position: 'bottom',
@@ -242,9 +245,10 @@ export class StafftrainpersonPage implements OnInit {
         }]
       },
       options: {
-        scales: {
-          xAxes: [
-          ]
+        plugins: {
+          labels: {
+            render: 'value',
+          }
         },
         legend: {
           position: 'bottom',
