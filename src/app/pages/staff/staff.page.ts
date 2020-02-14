@@ -32,13 +32,13 @@ export class StaffPage implements OnInit {
   //     });
   // }
   get_data() {
-    this.http.get('http://203.158.144.140/APIchart/charts/Empall')
+    this.http.get('https://app.rmutp.ac.th/testapibi/charts/Empall')
       .subscribe((res: any) => {
-        this.list = res.Table;
-        this.total = res.Table.map(res => res.total);
-        this.dataname = res.Table.map(res => res.stafftype);
-
+        this.list = res;
+        this.total = res.map(ss => ss.total);
+        this.dataname = res.map(ss => ss.stafftype);
         this.barChartMethod();
+        console.log(res);
       });
   }
 

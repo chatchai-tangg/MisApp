@@ -6,6 +6,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { MainPage } from './main.page';
+import { HttpClientModule } from '@angular/common/http';
+import { CrudapiService } from '../services/crudapi.service';
+
 
 const routes: Routes = [
   {
@@ -19,8 +22,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
   ],
   declarations: [MainPage]
 })
-export class MainPageModule {}
+export class MainPageModule { }

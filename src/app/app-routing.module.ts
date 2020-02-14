@@ -8,13 +8,14 @@ const routes: Routes = [
   { path: 'staff', loadChildren: './pages/staff/staff.module#StaffPageModule' },
   { path: 'student', loadChildren: './pages/student/student.module#StudentPageModule' },
   { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
-  { path: 'staff-reqposition', loadChildren: './pages/staff-reqposition/staff-reqposition.module#StaffReqpositionPageModule' },  { path: 'studentdistfac', loadChildren: './pages/studentdistfac/studentdistfac.module#StudentdistfacPageModule' },
+  { path: 'staff-reqposition', loadChildren: './pages/staff-reqposition/staff-reqposition.module#StaffReqpositionPageModule' },
+  { path: 'studentdistfac', loadChildren: './pages/studentdistfac/studentdistfac.module#StudentdistfacPageModule' },
   { path: 'staffscholar', loadChildren: './pages/staffscholar/staffscholar.module#StaffscholarPageModule' },
   { path: 'staffdistedu', loadChildren: './pages/staffdistedu/staffdistedu.module#StaffdisteduPageModule' },
   { path: 'stdenddistfac', loadChildren: './pages/stdenddistfac/stdenddistfac.module#StdenddistfacPageModule' },
   { path: 'stdgradeless2', loadChildren: './pages/stdgradeless2/stdgradeless2.module#Stdgradeless2PageModule' },
   { path: 'stafftrainperson', loadChildren: './pages/stafftrainperson/stafftrainperson.module#StafftrainpersonPageModule' },
-  { path: 'adddata', loadChildren: './pages/adddata/adddata.module#AdddataPageModule' },
+  { path: 'adddata/:ID', loadChildren: './pages/adddata/adddata.module#AdddataPageModule' },
 
 
 ];

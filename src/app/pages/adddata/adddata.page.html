@@ -6,4 +6,29 @@
 
 <ion-content>
 
+
+  <p>{{ modelng | json }}</p>
+  <div *ngIf="modelng">
+    <ion-item>
+      <ion-label>Name</ion-label>
+      <ion-input [(ngModel)]="modelng.ID" placeholder="Enter Name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Age</ion-label>
+      <ion-input [(ngModel)]="modelng.stafftype" placeholder="Enter Age"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Address</ion-label>
+      <ion-input [(ngModel)]="modelng.total" placeholder="Enter Address"></ion-input>
+    </ion-item>
+  </div>
+
+
+  <ion-button (click)="update()" color="success" size="small">
+    Update
+  </ion-button>
+  <ion-button [routerLink]="[ '/menu']" color="danger" size="small">
+    Cancel
+  </ion-button>
+
 </ion-content>

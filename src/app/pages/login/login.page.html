@@ -1,23 +1,35 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>ลงชื่อเข้าใช้</ion-title>
+    <ion-title>LOGIN</ion-title>
   </ion-toolbar>
 </ion-header>
 
+
+
 <ion-content class="ion-padding">
-  <form (ngSubmit)="chcklogin()">
-    <ion-item>
-      <ion-label position="floating" for="username">ชื่อผู้ใช้</ion-label>
-      <ion-input #username type="text" required></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating" for="password">รหัสผ่าน</ion-label>
-      <ion-input #password type="password"></ion-input>
-    </ion-item>
-    <ion-button type="submit" shape="round" expand="full" style="margin-top:30px;">
-      ลงชื่อเข้าใช้
-    </ion-button>
-  </form>
+  <ion-card>
+    <ion-card-header>
+      <!-- <ion-card-subtitle>Card Subtitle</ion-card-subtitle> -->
+      <ion-card-title class="ion-text-center">ระบบช่วยสนับสนุนการตัดสินใจ</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <form (ngSubmit)="chcklogin()">
+        <ion-item>
+          <ion-label position="floating" for="username">ชื่อผู้ใช้</ion-label>
+          <ion-input #username type="text" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating" for="password">รหัสผ่าน</ion-label>
+          <ion-input #password type="password"></ion-input>
+        </ion-item>
+        <ion-button type="submit" shape="round" expand="full" style="margin-top:30px;">
+          ลงชื่อเข้าใช้
+        </ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+
   <!-- <ion-item>
     <ion-label position="floating">ชื่อผู้ใช้</ion-label>
     <ion-input #username type="text"></ion-input>
